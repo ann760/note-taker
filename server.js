@@ -2,6 +2,14 @@ const express = require("express");
 const PORT = process.env.PORT || 3002;
 const app = express();
 
+// parse incoming string or array data
+app.use(express.urlencoded({ extended: true }));
+// parse incoming JSON data
+app.use(express.json());
+app.use(express.static("public"));
+const fs = require("fs");
+const path = require("path");
+
 const { db } = require("./db/db.json");
 
 function createNewNote(body, notesArray) {
