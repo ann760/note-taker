@@ -24,7 +24,7 @@ function validateNote(note) {
   return true;
 }
 
-app.get("/", (req, res) => {
+app.get("/api/notes", (req, res) => {
     res.json(db);
   });
 
