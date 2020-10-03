@@ -2,13 +2,13 @@ const express = require("express");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-const { db } = require("./develop/db/db.json");
+const { db } = require("./develop/db.json");
 
 function createNewNote(body, notesArray) {
   const note = body;
   notesArray.push(note);
   fs.writeFileSync(
-    path.join(__dirname, "./develop/db/db.json"),
+    path.join(__dirname, "./develop/db.json"),
     JSON.stringify({ db: notesArray }, null, 2)
   );
   return note;
