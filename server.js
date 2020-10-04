@@ -1,8 +1,8 @@
 const express = require("express");
-const PORT = process.env.PORT || 3002;
 const app = express();
+const PORT = process.env.PORT || 3002;
 
-// parse incoming string or array data
+// sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 // parse incoming JSON data
 app.use(express.json());
@@ -10,13 +10,16 @@ app.use(express.static("public"));
 const fs = require("fs");
 const path = require("path");
 
+// data
 const { db } = require("./db/db.json");
 
+//functions
+// write new note to the db.json
 function createNewNote(body, notesArray) {
   const note = body;
   notesArray.push(note);
   fs.writeFileSync(
-    path.join(__dirname, "./develop/db.json"),
+    path.join(__dirname, "./db/db.json"),
     JSON.stringify({ db: notesArray }, null, 2)
   );
   return note;
@@ -32,23 +35,20 @@ function validateNote(note) {
   return true;
 }
 
+//get route
 app.get("/api/notes", (req, res) => {
-    res.json(db);
-  });
-
-app.post("/api/db", (req, res) => {
-  // set id based on what the next index of the array will be
-  req.body.id = note.length.toString();
-
-  // if any data in req.body is incorrect, send 400 error back
-  if (!validateNote(req.body)) {
-    res.status(400).send("The notes is not properly formatted.");
-  } else {
-    const note = createNewNote(req.body, note);
-    res.json(note);
-  }
+  res.json(db);
 });
 
+// post route
+app.post("/api/notes", (req, res) => {
+  // set an id
+  req.body.id = db.length.toString();
+  const note = createNewNote(req.body, db);
+  res.json(note);
+});
+
+// listener
 app.listen(PORT, () => {
   console.log(`API server now on port ${PORT}!`);
 });
