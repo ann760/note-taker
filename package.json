@@ -1,0 +1,23 @@
+{
+  "name": "note-taker",
+  "version": "1.0.0",
+  "description": "Note taking app with express and heroku",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ann760/note-taker.git"
+  },
+  "author": "Ann-Marie Orozco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ann760/note-taker/issues"
+  },
+  "homepage": "https://github.com/ann760/note-taker#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
