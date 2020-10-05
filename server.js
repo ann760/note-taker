@@ -25,16 +25,7 @@ function createNewNote(body, notesArray) {
   return note;
 }
 
-function validateNote(note) {
-  if (!note.title || typeof note.title !== "string") {
-    return false;
-  }
-  if (!note.text || typeof note.test !== "string") {
-    return false;
-  }
-  return true;
-}
-
+//---ROUTES---
 //get route
 app.get("/api/notes", (req, res) => {
   res.json(db);
@@ -44,8 +35,9 @@ app.get("/api/notes", (req, res) => {
 app.post("/api/notes", (req, res) => {
   // set an id
   req.body.id = db.length.toString();
-  const note = createNewNote(req.body, db);
-  res.json(note);
+  
+    const note = createNewNote(req.body, db);
+    res.json(note);
 });
 
 // listener
