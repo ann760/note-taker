@@ -1,5 +1,8 @@
 # Note Taker Starter Code
 
+## Purpose
+A calendar to schedule the day
+
 # Acceptance Criteria
 - GIVEN a note-taking application
 - WHEN I open the Note Taker
@@ -14,3 +17,18 @@
 - THEN that note appears in the right-hand column
 - WHEN I click on the Write icon in the navigation at the top of the page
 - THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
+
+## Built With
+* HTML
+* CSS
+* js
+* jQuery
+* node js
+* node express js
+
+## Website
+https://intense-badlands-04427.herokuapp.com/
+
+
+## Author
+Ann-Marie Orozco
